@@ -7,10 +7,10 @@
             "player1": "Salah Hegazy",
             "player2": "Maged Roushdy",
             "stats": {
-                "wins": 4,
-                "goals_for": 84,
-                "goals_against": 58,
-                "matches_played": 4
+                "wins": 5,
+                "goals_for": 105,
+                "goals_against": 76,
+                "matches_played": 5
             }
         },
         {
@@ -320,9 +320,9 @@
             "player2": "Yasser Labib",
             "stats": {
                 "wins": 4,
-                "goals_for": 84,
-                "goals_against": 56,
-                "matches_played": 4
+                "goals_for": 102,
+                "goals_against": 77,
+                "matches_played": 5
             }
         },
         {
@@ -844,11 +844,11 @@
             "p1": 0,
             "p2": 24,
             "score": [
-                0,
-                0
+                21,
+                18
             ],
-            "winner": null,
-            "completed": false,
+            "winner": 0,
+            "completed": true,
             "time": "2026-05-03 12:00",
             "next_match_id": null
         }
