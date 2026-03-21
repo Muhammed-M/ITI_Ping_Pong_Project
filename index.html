@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Cup 2026 — Ping Pong</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #f4f2ee;
+            --surface: #ffffff;
+            --surface2: #f9f8f6;
+            --border: rgba(0,0,0,0.09);
+            --border-strong: rgba(0,0,0,0.15);
+            --text: #1a1a18;
+            --muted: #6b6860;
+            --accent: #d4400a;
+            --accent-light: #fff0ea;
+            --accent-mid: #f07040;
+            --green: #1a7f4e;
+            --green-light: #e8f5ee;
+            --gold: #b07800;
+            --gold-light: #fdf5e0;
+            --blue: #1a5fa0;
+            --blue-light: #e8f0fa;
+            --radius: 12px;
+            --radius-sm: 7px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            background: var(--text);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            letter-spacing: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-ping {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px;
+        }
+
+        .header-sub {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        /* ─── NAV TABS ─── */
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--muted);
+            background: none;
+            border: none;
+            border-bottom: 2.5px solid transparent;
+            padding: 0.875rem 1.25rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .tab-btn:hover { color: var(--text); }
+        .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+        /* ─── MAIN ─── */
+        .main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* ─── LOADING / ERROR ─── */
+        .state-screen {
+            text-align: center;
+            padding: 5rem 1rem;
+            font-size: 1rem;
+            color: var(--muted);
+        }
+        .state-screen.error { color: var(--accent); }
+
+        /* ─── SECTION HEADER ─── */
+        .section-hd {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0;
+        }
+
+        /* ─── STATS STRIP (top of matches) ─── */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 1.75rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+        }
+
+        .stat-card .num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* ─── ROUND GROUPS ─── */
+        .round-group {
+            margin-bottom: 2rem;
+        }
+
+        .round-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.875rem;
+        }
+
+        .round-label-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+        }
+
+        .round-label-pill {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 99px;
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .round-label-pill.final { background: var(--gold-light); color: var(--gold); }
+        .round-label-pill.semi { background: var(--blue-light); color: var(--blue); }
+
+        .round-label hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ─── MATCH CARDS ─── */
+        .matches-list { display: flex; flex-direction: column; gap: 10px; }
+
+        .match-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .match-card:hover {
+            border-color: var(--border-strong);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        }
+
+        .match-card.completed { border-left: 3px solid var(--green); }
+        .match-card.pending   { border-left: 3px solid var(--accent-mid); }
+        .match-card.upcoming  { border-left: 3px solid var(--border-strong); }
+
+        .match-inner {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .match-team { display: flex; flex-direction: column; gap: 2px; }
+        .match-team.right { text-align: right; }
+
+        .team-primary {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.925rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .team-primary.winner { color: var(--green); }
+        .team-primary.loser  { color: var(--muted); }
+
+        .team-secondary {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .match-score-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-width: 64px;
+        }
+
+        .score-nums {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .score-nums.completed { color: var(--green); }
+        .score-vs {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .match-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .date-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 99px;
+            background: var(--bg);
+            color: var(--muted);
+        }
+
+        .date-chip.today   { background: var(--green-light); color: var(--green); }
+        .date-chip.past    { background: var(--surface2); color: var(--muted); }
+        .date-chip.upcoming { background: var(--accent-light); color: var(--accent); }
+
+        .match-id-chip {
+            font-size: 0.65rem;
+            color: var(--muted);
+            opacity: 0.6;
+        }
+
+        /* ─── BYE CARD ─── */
+        .bye-card {
+            background: var(--green-light);
+            border: 1px solid rgba(26,127,78,0.15);
+            border-radius: var(--radius);
+            padding: 0.875rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bye-team-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--green);
+            margin-bottom: 2px;
+        }
+
+        .bye-team-sub {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .bye-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: rgba(26,127,78,0.12);
+            padding: 4px 10px;
+            border-radius: 99px;
+        }
+
+        /* ─── RANKINGS ─── */
+        .rankings-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .rank-header {
+            display: grid;
+            grid-template-columns: 56px 1fr 80px 80px 80px;
+            gap: 8px;
+            padding: 0.75rem 1.25rem;
+            background: var(--surface2);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+        }
+
+        .rank-header > *:not(:first-child):not(:nth-child(2)) { text-align: center; }
+
+        .rank-row {
+            display: grid;
+            grid-template-columns: 56px 1fr 80px 80px 80px;
+            gap: 8px;
+            padding: 0.875rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+            transition: background 0.15s;
+        }
+
+        .rank-row:last-child { border-bottom: none; }
+        .rank-row:hover { background: var(--bg); }
+
+        .rank-row.r-gold   { border-left: 3px solid #e8b800; }
+        .rank-row.r-silver { border-left: 3px solid #aaaaaa; }
+        .rank-row.r-bronze { border-left: 3px solid #c07838; }
+
+        .rank-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .rank-num.gold   { color: var(--gold); }
+        .rank-num.silver { color: #888; }
+        .rank-num.bronze { color: #a06030; }
+        .rank-num.plain  { color: var(--muted); font-weight: 500; font-size: 0.85rem; }
+
+        .rank-team-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .rank-team-sub {
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .rank-stat {
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .rank-stat.gd.pos { color: var(--green); }
+        .rank-stat.gd.neg { color: var(--accent); }
+
+        /* ─── BRACKET VIEW ─── */
+        .bracket-scroll {
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .bracket-grid {
+            display: flex;
+            gap: 0;
+            min-width: max-content;
+            align-items: stretch;
+        }
+
+        .bracket-round-col {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+
+        .bracket-round-hd {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+            text-align: center;
+            padding: 0.5rem 1rem 1rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 56px;
+        }
+
+        .bracket-slots {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            flex: 1;
+            padding: 1rem 0.75rem;
+            gap: 0;
+            border-right: 1px solid var(--border);
+        }
+
+        .bracket-match {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: auto 0;
+            position: relative;
+        }
+
+        .bracket-team {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text);
+            white-space: nowrap;
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: background 0.15s;
+        }
+
+        .bracket-team:first-of-type { border-radius: var(--radius-sm) var(--radius-sm) 0 0; border-bottom: none; }
+        .bracket-team:last-of-type  { border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+
+        .bracket-team.winner { color: var(--green); font-weight: 600; background: var(--green-light); border-color: rgba(26,127,78,0.2); }
+        .bracket-team.tbd    { color: var(--muted); font-style: italic; background: var(--surface2); }
+        .bracket-team.bye    { color: var(--muted); font-style: italic; background: var(--surface2); }
+
+        .bracket-score-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: var(--muted);
+            padding: 2px 0.75rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .bracket-spacer {
+            flex: 1;
+            min-height: 24px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .main { padding: 1.25rem 0.75rem; }
+            header { padding: 0 1rem; }
+            .nav-tabs { padding: 0 0.75rem; }
+            .stats-strip { grid-template-columns: 1fr 1fr; }
+            .stats-strip .stat-card:last-child { grid-column: span 2; }
+            .rank-header, .rank-row { grid-template-columns: 44px 1fr 64px 64px; }
+            .rank-header > *:nth-child(5), .rank-row > *:nth-child(5) { display: none; }
+            .match-inner { gap: 0.5rem; }
+            .team-primary { font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-ping">🏓</div>
+        April Cup 2026
+    </div>
+    <div class="header-sub">ITI Ping Pong</div>
+</header>
+
+<nav class="nav-tabs">
+    <button class="tab-btn active" onclick="showView('matches')">Matches</button>
+    <button class="tab-btn" onclick="showView('bracket')">Bracket</button>
+    <button class="tab-btn" onclick="showView('rankings')">Rankings</button>
+</nav>
+
+<div id="loading-screen" class="state-screen">Loading tournament data…</div>
+<div id="error-screen" class="state-screen error" style="display:none;"></div>
+
+<div class="main" id="app" style="display:none;">
+    <!-- MATCHES VIEW -->
+    <div class="view active" id="view-matches">
+        <div class="stats-strip" id="stats-strip"></div>
+        <div id="rounds-container"></div>
+    </div>
+
+    <!-- BRACKET VIEW -->
+    <div class="view" id="view-bracket">
+        <div class="section-hd">Tournament Bracket</div>
+        <div class="bracket-scroll">
+            <div class="bracket-grid" id="bracket-grid"></div>
+        </div>
+    </div>
+
+    <!-- RANKINGS VIEW -->
+    <div class="view" id="view-rankings">
+        <div class="section-hd">Standings</div>
+        <div class="rankings-wrap">
+            <div class="rank-header">
+                <div style="text-align:center">#</div>
+                <div>Team</div>
+                <div style="text-align:center">W</div>
+                <div style="text-align:center">GF</div>
+                <div style="text-align:center">GD</div>
+            </div>
+            <div id="rankings-container"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+let DATA = null;
+
+// ─── FETCH ───────────────────────────────────────────────────────────────────
+fetch('tournament_data.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+        DATA = data;
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        renderStats(data);
+        renderMatches(data);
+        renderBracket(data);
+        renderRankings(data);
+    })
+    .catch(() => {
+        document.getElementById('loading-screen').style.display = 'none';
+        const el = document.getElementById('error-screen');
+        el.style.display = 'block';
+        el.textContent = 'Could not load data. Is the Python server running? (python -m http.server 8000)';
+    });
+
+// ─── VIEW SWITCHING ──────────────────────────────────────────────────────────
+function showView(name) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('view-' + name).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function teamById(data, id) {
+    return data.teams.find(t => t.id === id) || null;
+}
+
+function displayName(team) {
+    if (!team) return 'TBD';
+    const p1 = team.player1 ? team.player1.split(' ')[0] : '';
+    const p2 = team.player2 ? team.player2.split(' ')[0] : '';
+    return p1 && p2 ? `${p1} & ${p2}` : team.name;
+}
+
+function shortName(team) {
+    if (!team) return 'TBD';
+    return team.track ? `${team.name} · ${team.track}` : team.name;
+}
+
+function isPhantom(match) {
+    return match.p1 === -1 && match.p2 === -1;
+}
+
+function getRoundName(r, maxRound) {
+    if (r === maxRound) return 'Final';
+    if (r === maxRound - 1) return 'Semi-finals';
+    if (r === maxRound - 2) return 'Quarter-finals';
+    const real = DATA.matches.filter(m => m.round === r && !isPhantom(m));
+    return `Round of ${real.length * 2}`;
+}
+
+function dateInfo(str) {
+    if (str === 'TBD' || str === 'Bye') return { label: str, cls: 'upcoming', time: '' };
+    const d = new Date(str);
+    const today = new Date(); today.setHours(0,0,0,0);
+    const md = new Date(d); md.setHours(0,0,0,0);
+    const diff = md - today;
+    const dateStr = d.toLocaleDateString('en-US', { month:'short', day:'numeric' });
+    const timeStr = d.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+    if (diff === 0) return { label: 'Today', cls: 'today', time: timeStr };
+    if (diff < 0)   return { label: dateStr, cls: 'past', time: timeStr };
+    return { label: dateStr, cls: 'upcoming', time: timeStr };
+}
+
+// ─── STATS STRIP ─────────────────────────────────────────────────────────────
+function renderStats(data) {
+    const completed = data.matches.filter(m => m.completed && !isPhantom(m)).length;
+    const pending   = data.matches.filter(m => !m.completed && m.p1 !== null && m.p2 !== null && m.p1 !== -1 && m.p2 !== -1).length;
+    const teams     = data.teams.length;
+    document.getElementById('stats-strip').innerHTML = `
+        <div class="stat-card">
+            <div class="num">${teams}</div>
+            <div class="label">Teams</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">${completed}</div>
+            <div class="label">Played</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">${pending}</div>
+            <div class="label">Upcoming</div>
+        </div>
+    `;
+}
+
+// ─── MATCHES VIEW ─────────────────────────────────────────────────────────────
+function renderMatches(data) {
+    const container = document.getElementById('rounds-container');
+    const maxRound  = Math.max(...data.matches.map(m => m.round));
+    let html = '';
+
+    for (let r = 1; r <= maxRound; r++) {
+        const roundMatches = data.matches
+            .filter(m => m.round === r && !isPhantom(m))
+            .sort((a, b) => {
+                if (a.completed !== b.completed) return a.completed ? -1 : 1;
+                if (a.time === 'TBD' || a.time === 'Bye') return 1;
+                if (b.time === 'TBD' || b.time === 'Bye') return -1;
+                return new Date(a.time) - new Date(b.time);
+            });
+
+        if (roundMatches.length === 0) continue;
+
+        const name = getRoundName(r, maxRound);
+        const pillCls = r === maxRound ? 'final' : r === maxRound - 1 ? 'semi' : '';
+
+        html += `<div class="round-group">
+            <div class="round-label">
+                <span class="round-label-text">${name}</span>
+                <span class="round-label-pill ${pillCls}">${roundMatches.length} match${roundMatches.length>1?'es':''}</span>
+                <hr>
+            </div>
+            <div class="matches-list">`;
+
+        for (const m of roundMatches) {
+            html += renderMatchCard(data, m);
+        }
+
+        html += `</div></div>`;
+    }
+
+    container.innerHTML = html;
+}
+
+function renderMatchCard(data, m) {
+    const isBye = m.p1 === -1 || m.p2 === -1;
+
+    if (isBye) {
+        const realTeam = m.p1 !== -1 ? teamById(data, m.p1) : teamById(data, m.p2);
+        return `<div class="bye-card">
+            <div>
+                <div class="bye-team-name">${displayName(realTeam)}</div>
+                <div class="bye-team-sub">${shortName(realTeam)}</div>
+            </div>
+            <div class="bye-badge">Auto-qualified</div>
+        </div>`;
+    }
+
+    const t1 = teamById(data, m.p1);
+    const t2 = teamById(data, m.p2);
+    const w1 = m.completed && m.winner === m.p1;
+    const w2 = m.completed && m.winner === m.p2;
+    const di = dateInfo(m.time);
+
+    const cardCls = m.completed ? 'completed' : (m.p1 !== null && m.p2 !== null ? 'pending' : 'upcoming');
+    const t1cls = m.completed ? (w1 ? 'winner' : 'loser') : '';
+    const t2cls = m.completed ? (w2 ? 'winner' : 'loser') : '';
+
+    const scoreHtml = m.completed
+        ? `<div class="score-nums completed">${m.score[0]}–${m.score[1]}</div>`
+        : `<div class="score-vs">vs</div>`;
+
+    return `<div class="match-card ${cardCls}">
+        <div class="match-inner">
+            <div class="match-team">
+                <div class="team-primary ${t1cls}">${displayName(t1)}</div>
+                <div class="team-secondary">${t1 ? shortName(t1) : ''}</div>
+            </div>
+            <div class="match-score-block">${scoreHtml}</div>
+            <div class="match-team right">
+                <div class="team-primary ${t2cls}">${displayName(t2)}</div>
+                <div class="team-secondary">${t2 ? shortName(t2) : ''}</div>
+            </div>
+        </div>
+        <div class="match-meta">
+            <span class="date-chip ${di.cls}">${di.label}${di.time ? ' · ' + di.time : ''}</span>
+            <span class="match-id-chip">Match #${m.id}</span>
+        </div>
+    </div>`;
+}
+
+// ─── BRACKET VIEW ─────────────────────────────────────────────────────────────
+function renderBracket(data) {
+    const grid     = document.getElementById('bracket-grid');
+    const maxRound = Math.max(...data.matches.map(m => m.round));
+
+    grid.innerHTML = '';
+
+    for (let r = 1; r <= maxRound; r++) {
+        const roundMatches = data.matches
+            .filter(m => m.round === r)
+            .sort((a, b) => a.id - b.id);
+
+        const col = document.createElement('div');
+        col.className = 'bracket-round-col';
+
+        const hd = document.createElement('div');
+        hd.className = 'bracket-round-hd';
+        hd.textContent = getRoundName(r, maxRound);
+        col.appendChild(hd);
+
+        const slots = document.createElement('div');
+        slots.className = 'bracket-slots';
+
+        for (const m of roundMatches) {
+            if (isPhantom(m)) {
+                const sp = document.createElement('div');
+                sp.className = 'bracket-spacer';
+                slots.appendChild(sp);
+                continue;
+            }
+
+            const t1   = teamById(data, m.p1);
+            const t2   = teamById(data, m.p2);
+            const w1   = m.completed && m.winner === m.p1;
+            const w2   = m.completed && m.winner === m.p2;
+            const isBye1 = m.p1 === -1;
+            const isBye2 = m.p2 === -1;
+
+            const t1cls = isBye1 ? 'bye' : (!m.completed ? '' : (w1 ? 'winner' : ''));
+            const t2cls = isBye2 ? 'bye' : (!m.completed ? (t2 ? '' : 'tbd') : (w2 ? 'winner' : ''));
+
+            const t1name = isBye1 ? 'Bye' : (t1 ? displayName(t1) : 'TBD');
+            const t2name = isBye2 ? 'Bye' : (t2 ? displayName(t2) : 'TBD');
+
+            const matchEl = document.createElement('div');
+            matchEl.className = 'bracket-match';
+
+            let scoreBar = '';
+            if (m.completed && !isBye1 && !isBye2) {
+                scoreBar = `<div class="bracket-score-bar"><span>${m.score[0]}</span><span>${m.score[1]}</span></div>`;
+            }
+
+            matchEl.innerHTML = `
+                <div class="bracket-team ${t1cls}" title="${t1name}">${t1name}</div>
+                ${scoreBar}
+                <div class="bracket-team ${t2cls}" title="${t2name}">${t2name}</div>
+            `;
+            slots.appendChild(matchEl);
+
+            // spacer between matches within a round
+            const sp = document.createElement('div');
+            sp.className = 'bracket-spacer';
+            slots.appendChild(sp);
+        }
+
+        col.appendChild(slots);
+        grid.appendChild(col);
+    }
+}
+
+// ─── RANKINGS ────────────────────────────────────────────────────────────────
+function renderRankings(data) {
+    const ranked = data.teams
+        .map(t => {
+            const s = t.stats || {};
+            const gf = s.goals_for || 0;
+            const ga = s.goals_against || 0;
+            return { ...t, wins: s.wins || 0, gf, ga, gd: gf - ga, mp: s.matches_played || 0 };
+        })
+        .sort((a, b) => {
+            if (b.wins !== a.wins) return b.wins - a.wins;
+            if (b.gd !== a.gd)   return b.gd - a.gd;
+            return b.gf - a.gf;
+        });
+
+    const medals = ['gold', 'silver', 'bronze'];
+    const rowCls  = ['r-gold', 'r-silver', 'r-bronze'];
+
+    const container = document.getElementById('rankings-container');
+    container.innerHTML = ranked.map((t, i) => {
+        const rank = i + 1;
+        const medCls  = rank <= 3 ? medals[i] : 'plain';
+        const rowClass = rank <= 3 ? rowCls[i] : '';
+        const gdCls    = t.gd > 0 ? 'pos' : t.gd < 0 ? 'neg' : '';
+        const gdStr    = t.gd > 0 ? `+${t.gd}` : `${t.gd}`;
+
+        return `<div class="rank-row ${rowClass}">
+            <div class="rank-num ${medCls}">${rank}</div>
+            <div>
+                <div class="rank-team-name">${displayName(t)}</div>
+                <div class="rank-team-sub">${t.name} · ${t.mp} played</div>
+            </div>
+            <div class="rank-stat">${t.wins}</div>
+            <div class="rank-stat">${t.gf}</div>
+            <div class="rank-stat gd ${gdCls}">${gdStr}</div>
+        </div>`;
+    }).join('');
+}
+</script>
+</body>
+</html>

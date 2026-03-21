@@ -1,0 +1,856 @@
+{
+    "teams": [
+        {
+            "id": 0,
+            "name": "Team 1",
+            "real_name": "Salah Hegazy & Maged Roushdy",
+            "player1": "Salah Hegazy",
+            "player2": "Maged Roushdy",
+            "stats": {
+                "wins": 3,
+                "goals_for": 63,
+                "goals_against": 38,
+                "matches_played": 3
+            }
+        },
+        {
+            "id": 1,
+            "name": "Team 2",
+            "real_name": "Emad Khalifa & Nour Eldin Saad",
+            "player1": "Emad Khalifa",
+            "player2": "Nour Eldin Saad",
+            "stats": {
+                "wins": 0,
+                "goals_for": 13,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 2,
+            "name": "Team 3",
+            "real_name": "Mostafa Amin & Ehab Mansour",
+            "player1": "Mostafa Amin",
+            "player2": "Ehab Mansour",
+            "stats": {
+                "wins": 1,
+                "goals_for": 28,
+                "goals_against": 31,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 3,
+            "name": "Team 4",
+            "real_name": "Mahmoud Gamal & Kareem Helmy",
+            "player1": "Mahmoud Gamal",
+            "player2": "Kareem Helmy",
+            "stats": {
+                "wins": 0,
+                "goals_for": 10,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 4,
+            "name": "Team 5",
+            "real_name": "Samir Halim & Nader Wahby",
+            "player1": "Samir Halim",
+            "player2": "Nader Wahby",
+            "stats": {
+                "wins": 2,
+                "goals_for": 60,
+                "goals_against": 60,
+                "matches_played": 3
+            }
+        },
+        {
+            "id": 5,
+            "name": "Team 6",
+            "real_name": "Wael Shafik & Magdy Soliman",
+            "player1": "Wael Shafik",
+            "player2": "Magdy Soliman",
+            "stats": {
+                "wins": 0,
+                "goals_for": 19,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 6,
+            "name": "Team 7",
+            "real_name": "Karim Mansour & Tarek Fahmy",
+            "player1": "Karim Mansour",
+            "player2": "Tarek Fahmy",
+            "stats": {
+                "wins": 0,
+                "goals_for": 18,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 7,
+            "name": "Team 8",
+            "real_name": "Youssef Nasser & Omar Farouk",
+            "player1": "Youssef Nasser",
+            "player2": "Omar Farouk",
+            "stats": {
+                "wins": 1,
+                "goals_for": 41,
+                "goals_against": 39,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 8,
+            "name": "Team 9",
+            "real_name": "Hany Gaber & Ashraf Metwaly",
+            "player1": "Hany Gaber",
+            "player2": "Ashraf Metwaly",
+            "stats": {
+                "wins": 2,
+                "goals_for": 63,
+                "goals_against": 35,
+                "matches_played": 3
+            }
+        },
+        {
+            "id": 9,
+            "name": "Team 10",
+            "real_name": "Samer Khalil & Ayman Tawfik",
+            "player1": "Samer Khalil",
+            "player2": "Ayman Tawfik",
+            "stats": {
+                "wins": 0,
+                "goals_for": 4,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 10,
+            "name": "Team 11",
+            "real_name": "Khaled Morsy & Sherif Lotfy",
+            "player1": "Khaled Morsy",
+            "player2": "Sherif Lotfy",
+            "stats": {
+                "wins": 1,
+                "goals_for": 25,
+                "goals_against": 27,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 11,
+            "name": "Team 12",
+            "real_name": "Sameh Wahid & Hossam Fathy",
+            "player1": "Sameh Wahid",
+            "player2": "Hossam Fathy",
+            "stats": {
+                "wins": 0,
+                "goals_for": 6,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 12,
+            "name": "Team 13",
+            "real_name": "Ramez Abdou & Sherif Hamdy",
+            "player1": "Ramez Abdou",
+            "player2": "Sherif Hamdy",
+            "stats": {
+                "wins": 3,
+                "goals_for": 69,
+                "goals_against": 41,
+                "matches_played": 3
+            }
+        },
+        {
+            "id": 13,
+            "name": "Team 14",
+            "real_name": "Ramy Fouad & Osama Naggar",
+            "player1": "Ramy Fouad",
+            "player2": "Osama Naggar",
+            "stats": {
+                "wins": 0,
+                "goals_for": 19,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 14,
+            "name": "Team 15",
+            "real_name": "Ziad Mansour & Adham Sherif",
+            "player1": "Ziad Mansour",
+            "player2": "Adham Sherif",
+            "stats": {
+                "wins": 1,
+                "goals_for": 22,
+                "goals_against": 33,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 15,
+            "name": "Team 16",
+            "real_name": "Ahmed Galal & Mahmoud Rizk",
+            "player1": "Ahmed Galal",
+            "player2": "Mahmoud Rizk",
+            "stats": {
+                "wins": 0,
+                "goals_for": 12,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 16,
+            "name": "Team 17",
+            "real_name": "Mohamed Atef & Ibrahim Qasem",
+            "player1": "Mohamed Atef",
+            "player2": "Ibrahim Qasem",
+            "stats": {
+                "wins": 3,
+                "goals_for": 63,
+                "goals_against": 27,
+                "matches_played": 3
+            }
+        },
+        {
+            "id": 17,
+            "name": "Team 18",
+            "real_name": "Tarek Selim & Nabil Younis",
+            "player1": "Tarek Selim",
+            "player2": "Nabil Younis",
+            "stats": {
+                "wins": 0,
+                "goals_for": 13,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 18,
+            "name": "Team 19",
+            "real_name": "Amr Helal & Saad Eldin Rashed",
+            "player1": "Amr Helal",
+            "player2": "Saad Eldin Rashed",
+            "stats": {
+                "wins": 1,
+                "goals_for": 30,
+                "goals_against": 35,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 19,
+            "name": "Team 20",
+            "real_name": "Hassan Sobhi & Adel Sarhan",
+            "player1": "Hassan Sobhi",
+            "player2": "Adel Sarhan",
+            "stats": {
+                "wins": 0,
+                "goals_for": 14,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 20,
+            "name": "Team 21",
+            "real_name": "Tamer Badawi & Alaa Gohar",
+            "player1": "Tamer Badawi",
+            "player2": "Alaa Gohar",
+            "stats": {
+                "wins": 2,
+                "goals_for": 47,
+                "goals_against": 43,
+                "matches_played": 3
+            }
+        },
+        {
+            "id": 21,
+            "name": "Team 22",
+            "real_name": "Amr Shalaby & Bassem Ragab",
+            "player1": "Amr Shalaby",
+            "player2": "Bassem Ragab",
+            "stats": {
+                "wins": 0,
+                "goals_for": 14,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 22,
+            "name": "Team 23",
+            "real_name": "Youssef Bakr & Hamdy Morcos",
+            "player1": "Youssef Bakr",
+            "player2": "Hamdy Morcos",
+            "stats": {
+                "wins": 1,
+                "goals_for": 29,
+                "goals_against": 29,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 23,
+            "name": "Team 24",
+            "real_name": "Omar Sabry & Amir Maghraby",
+            "player1": "Omar Sabry",
+            "player2": "Amir Maghraby",
+            "stats": {
+                "wins": 0,
+                "goals_for": 8,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 24,
+            "name": "Team 25",
+            "real_name": "Kamal Osman & Yasser Labib",
+            "player1": "Kamal Osman",
+            "player2": "Yasser Labib",
+            "stats": {
+                "wins": 2,
+                "goals_for": 42,
+                "goals_against": 22,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 25,
+            "name": "Team 26",
+            "real_name": "Fares Zidan & Hazem Barakat",
+            "player1": "Fares Zidan",
+            "player2": "Hazem Barakat",
+            "stats": {
+                "wins": 0,
+                "goals_for": 16,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 26,
+            "name": "Team 27",
+            "real_name": "Hossam Saad & Walid Aziz",
+            "player1": "Hossam Saad",
+            "player2": "Walid Aziz",
+            "stats": {
+                "wins": 1,
+                "goals_for": 27,
+                "goals_against": 38,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 27,
+            "name": "Team 28",
+            "real_name": "Ahmed Samy & Wael Othman",
+            "player1": "Ahmed Samy",
+            "player2": "Wael Othman",
+            "stats": {
+                "wins": 0,
+                "goals_for": 17,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 28,
+            "name": "Team 29",
+            "real_name": "Mohamed Nour & Bassam Khalil",
+            "player1": "Mohamed Nour",
+            "player2": "Bassam Khalil",
+            "stats": {
+                "wins": 2,
+                "goals_for": 42,
+                "goals_against": 31,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 29,
+            "name": "Team 30",
+            "real_name": "Ibrahim Lotfy & Hany Abdelsalam",
+            "player1": "Ibrahim Lotfy",
+            "player2": "Hany Abdelsalam",
+            "stats": {
+                "wins": 0,
+                "goals_for": 12,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        },
+        {
+            "id": 30,
+            "name": "Team 31",
+            "real_name": "Sherif Nabil & Mostafa Shawky",
+            "player1": "Sherif Nabil",
+            "player2": "Mostafa Shawky",
+            "stats": {
+                "wins": 1,
+                "goals_for": 40,
+                "goals_against": 37,
+                "matches_played": 2
+            }
+        },
+        {
+            "id": 31,
+            "name": "Team 32",
+            "real_name": "Khaled Gouda & Tarek Hamdan",
+            "player1": "Khaled Gouda",
+            "player2": "Tarek Hamdan",
+            "stats": {
+                "wins": 0,
+                "goals_for": 16,
+                "goals_against": 21,
+                "matches_played": 1
+            }
+        }
+    ],
+    "matches": [
+        {
+            "id": 1,
+            "round": 1,
+            "p1": 0,
+            "p2": 1,
+            "score": [
+                21,
+                13
+            ],
+            "winner": 0,
+            "completed": true,
+            "time": "2026-04-01 12:00",
+            "next_match_id": 17
+        },
+        {
+            "id": 2,
+            "round": 1,
+            "p1": 2,
+            "p2": 3,
+            "score": [
+                21,
+                10
+            ],
+            "winner": 2,
+            "completed": true,
+            "time": "2026-04-01 12:15",
+            "next_match_id": 17
+        },
+        {
+            "id": 3,
+            "round": 1,
+            "p1": 4,
+            "p2": 5,
+            "score": [
+                21,
+                19
+            ],
+            "winner": 4,
+            "completed": true,
+            "time": "2026-04-02 12:00",
+            "next_match_id": 18
+        },
+        {
+            "id": 4,
+            "round": 1,
+            "p1": 6,
+            "p2": 7,
+            "score": [
+                18,
+                21
+            ],
+            "winner": 7,
+            "completed": true,
+            "time": "2026-04-02 12:15",
+            "next_match_id": 18
+        },
+        {
+            "id": 5,
+            "round": 1,
+            "p1": 8,
+            "p2": 9,
+            "score": [
+                21,
+                4
+            ],
+            "winner": 8,
+            "completed": true,
+            "time": "2026-04-05 12:00",
+            "next_match_id": 19
+        },
+        {
+            "id": 6,
+            "round": 1,
+            "p1": 10,
+            "p2": 11,
+            "score": [
+                21,
+                6
+            ],
+            "winner": 10,
+            "completed": true,
+            "time": "2026-04-05 12:15",
+            "next_match_id": 19
+        },
+        {
+            "id": 7,
+            "round": 1,
+            "p1": 12,
+            "p2": 13,
+            "score": [
+                21,
+                19
+            ],
+            "winner": 12,
+            "completed": true,
+            "time": "2026-04-06 12:00",
+            "next_match_id": 20
+        },
+        {
+            "id": 8,
+            "round": 1,
+            "p1": 14,
+            "p2": 15,
+            "score": [
+                21,
+                12
+            ],
+            "winner": 14,
+            "completed": true,
+            "time": "2026-04-06 12:15",
+            "next_match_id": 20
+        },
+        {
+            "id": 9,
+            "round": 1,
+            "p1": 16,
+            "p2": 17,
+            "score": [
+                21,
+                13
+            ],
+            "winner": 16,
+            "completed": true,
+            "time": "2026-04-07 12:00",
+            "next_match_id": 21
+        },
+        {
+            "id": 10,
+            "round": 1,
+            "p1": 18,
+            "p2": 19,
+            "score": [
+                21,
+                14
+            ],
+            "winner": 18,
+            "completed": true,
+            "time": "2026-04-07 12:15",
+            "next_match_id": 21
+        },
+        {
+            "id": 11,
+            "round": 1,
+            "p1": 20,
+            "p2": 21,
+            "score": [
+                21,
+                14
+            ],
+            "winner": 20,
+            "completed": true,
+            "time": "2026-04-08 12:00",
+            "next_match_id": 22
+        },
+        {
+            "id": 12,
+            "round": 1,
+            "p1": 22,
+            "p2": 23,
+            "score": [
+                21,
+                8
+            ],
+            "winner": 22,
+            "completed": true,
+            "time": "2026-04-08 12:15",
+            "next_match_id": 22
+        },
+        {
+            "id": 13,
+            "round": 1,
+            "p1": 24,
+            "p2": 25,
+            "score": [
+                21,
+                16
+            ],
+            "winner": 24,
+            "completed": true,
+            "time": "2026-04-09 12:00",
+            "next_match_id": 23
+        },
+        {
+            "id": 14,
+            "round": 1,
+            "p1": 26,
+            "p2": 27,
+            "score": [
+                21,
+                17
+            ],
+            "winner": 26,
+            "completed": true,
+            "time": "2026-04-09 12:15",
+            "next_match_id": 23
+        },
+        {
+            "id": 15,
+            "round": 1,
+            "p1": 28,
+            "p2": 29,
+            "score": [
+                21,
+                12
+            ],
+            "winner": 28,
+            "completed": true,
+            "time": "2026-04-12 12:00",
+            "next_match_id": 24
+        },
+        {
+            "id": 16,
+            "round": 1,
+            "p1": 30,
+            "p2": 31,
+            "score": [
+                21,
+                16
+            ],
+            "winner": 30,
+            "completed": true,
+            "time": "2026-04-12 12:15",
+            "next_match_id": 24
+        },
+        {
+            "id": 17,
+            "round": 2,
+            "p1": 0,
+            "p2": 2,
+            "score": [
+                21,
+                7
+            ],
+            "winner": 0,
+            "completed": true,
+            "time": "2026-04-13 12:00",
+            "next_match_id": 25
+        },
+        {
+            "id": 18,
+            "round": 2,
+            "p1": 4,
+            "p2": 7,
+            "score": [
+                21,
+                20
+            ],
+            "winner": 4,
+            "completed": true,
+            "time": "2026-04-14 12:00",
+            "next_match_id": 25
+        },
+        {
+            "id": 19,
+            "round": 2,
+            "p1": 8,
+            "p2": 10,
+            "score": [
+                21,
+                4
+            ],
+            "winner": 8,
+            "completed": true,
+            "time": "2026-04-15 12:00",
+            "next_match_id": 26
+        },
+        {
+            "id": 20,
+            "round": 2,
+            "p1": 12,
+            "p2": 14,
+            "score": [
+                21,
+                1
+            ],
+            "winner": 12,
+            "completed": true,
+            "time": "2026-04-16 12:00",
+            "next_match_id": 26
+        },
+        {
+            "id": 21,
+            "round": 2,
+            "p1": 16,
+            "p2": 18,
+            "score": [
+                21,
+                9
+            ],
+            "winner": 16,
+            "completed": true,
+            "time": "2026-04-19 12:00",
+            "next_match_id": 27
+        },
+        {
+            "id": 22,
+            "round": 2,
+            "p1": 20,
+            "p2": 22,
+            "score": [
+                21,
+                8
+            ],
+            "winner": 20,
+            "completed": true,
+            "time": "2026-04-20 12:00",
+            "next_match_id": 27
+        },
+        {
+            "id": 23,
+            "round": 2,
+            "p1": 24,
+            "p2": 26,
+            "score": [
+                21,
+                6
+            ],
+            "winner": 24,
+            "completed": true,
+            "time": "2026-04-21 12:00",
+            "next_match_id": 28
+        },
+        {
+            "id": 24,
+            "round": 2,
+            "p1": 28,
+            "p2": 30,
+            "score": [
+                21,
+                19
+            ],
+            "winner": 28,
+            "completed": true,
+            "time": "2026-04-22 12:00",
+            "next_match_id": 28
+        },
+        {
+            "id": 25,
+            "round": 3,
+            "p1": 0,
+            "p2": 4,
+            "score": [
+                21,
+                18
+            ],
+            "winner": 0,
+            "completed": true,
+            "time": "2026-04-23 12:00",
+            "next_match_id": 29
+        },
+        {
+            "id": 26,
+            "round": 3,
+            "p1": 8,
+            "p2": 12,
+            "score": [
+                21,
+                27
+            ],
+            "winner": 12,
+            "completed": true,
+            "time": "2026-04-26 12:00",
+            "next_match_id": 29
+        },
+        {
+            "id": 27,
+            "round": 3,
+            "p1": 16,
+            "p2": 20,
+            "score": [
+                21,
+                5
+            ],
+            "winner": 16,
+            "completed": true,
+            "time": "2026-04-27 12:00",
+            "next_match_id": 30
+        },
+        {
+            "id": 28,
+            "round": 3,
+            "p1": 24,
+            "p2": 28,
+            "score": [
+                0,
+                0
+            ],
+            "winner": null,
+            "completed": false,
+            "time": "2026-04-28 12:00",
+            "next_match_id": 30
+        },
+        {
+            "id": 29,
+            "round": 4,
+            "p1": 0,
+            "p2": 12,
+            "score": [
+                0,
+                0
+            ],
+            "winner": null,
+            "completed": false,
+            "time": "2026-04-29 12:00",
+            "next_match_id": 31
+        },
+        {
+            "id": 30,
+            "round": 4,
+            "p1": 16,
+            "p2": null,
+            "score": [
+                0,
+                0
+            ],
+            "winner": null,
+            "completed": false,
+            "time": "TBD",
+            "next_match_id": 31
+        },
+        {
+            "id": 31,
+            "round": 5,
+            "p1": null,
+            "p2": null,
+            "score": [
+                0,
+                0
+            ],
+            "winner": null,
+            "completed": false,
+            "time": "TBD",
+            "next_match_id": null
+        }
+    ]
+}
