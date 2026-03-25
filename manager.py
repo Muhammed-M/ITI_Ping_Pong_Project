@@ -1,6 +1,5 @@
 import pandas as pd
 import json
-import random
 import os
 import math
 from datetime import datetime, timedelta
@@ -13,6 +12,8 @@ MATCH_DURATION = 15
 MATCHES_PER_DAY = 2  # Number of matches that can be played per day
 
 class TournamentManager:
+
+
     def __init__(self):
         self.teams = []
         self.matches = [] 
